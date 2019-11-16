@@ -54,7 +54,16 @@ button{
         <span>Extra</span>
         <button data-row-target='.text-box-extra' class="btnremove">-</button>
         </div>`
- 
+    
+    btn.forEach((item, key) => {
+      item.addEventListener('click',() =>{
+         //to add only 1
+         //extra[key].innerHTML = div 
+         //to add more than 1
+         extra[key].innerHTML += div 
+      })
+    })
+
     removeEvent(document, 'click', '.btnremove',removeItem);
 
     function removeEvent(element, event, selector, callback){
@@ -65,19 +74,11 @@ button{
       })
     }
 
-    btn.forEach((item, key) => {
-      item.addEventListener('click',() =>{
-         //to add only 1
-         //extra[key].innerHTML = div 
-         //to add more than 1
-         extra[key].innerHTML += div 
-      })
-    })
-
     function removeItem(params) {
       let buttonClicked = params.target
       buttonClicked.closest(buttonClicked.dataset.rowTarget).remove()
     }
+
 
   </script>
 </body>
