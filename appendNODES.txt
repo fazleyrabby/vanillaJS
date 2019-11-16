@@ -1,0 +1,20 @@
+   // let node = document.createElement('div')
+    // let nodeClass = document.createAttribute('class')
+    // nodeClass.value = 'text-box-extra'
+    // let span = document.createElement('span')
+    // let rmBtn = document.createElement('button')
+    // let btnClass = document.createAttribute('class')
+    // btnClass.value = 'btnremove'
+    // let btnDataAttr = document.createAttribute('data-row-target')
+    // btnDataAttr.value = '.text-box-extra'
+    // let textnode = document.createTextNode('rmv');
+    // let extextnode = document.createTextNode('extratxt');
+
+    // node.appendChild(span)
+    // span.appendChild(extextnode)
+    // node.setAttributeNode(nodeClass)
+    // node.appendChild(span)
+    // node.appendChild(rmBtn)
+    // rmBtn.setAttributeNode(btnClass)
+    // rmBtn.appendChild(textnode); 
+    // rmBtn.setAttributeNode(btnDataAttr)

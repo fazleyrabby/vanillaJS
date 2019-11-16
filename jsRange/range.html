@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		/*.container{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate(-50%,50%);
+			width: 350px;
+			text-align: center;
+		}
+		form{
+			text-align: center;
+		}*/
+		body{
+			width: 400px;
+		}
+	</style>
+	<div class="container">
+		<h3>Determine Range Value with Javscript</h3>
+		
+		<form action="" id="form">
+			<input type="number" id="start"><br><br>
+			<input type="number" id="end"><br><br>
+			<button type="submit">Check</button>
+			<br><br>
+			<div id="range">Result</div>
+		</form> 
+		
+		
+	</div>
+	
+	
+
+	<script>
+	let arr = [];
+	function rangeOfNumbers(startNumnber, endNumber){
+		if (startNumnber <= endNumber) {
+			arr.push(startNumnber);
+			rangeOfNumbers(startNumnber+1, endNumber);
+		}
+		return arr;
+	}
+
+	document.getElementById("form").addEventListener("submit", e => {
+		e.preventDefault();
+		arr = [];
+		const start = document.getElementById("start").value;
+		const end = document.getElementById("end").value;
+		const rangeBox = document.querySelector("#range");
+		if(start == '' || end == ''){
+			rangeBox.innerText = `Error : One or more field must be empty`;
+		}
+		else if (start > end) {
+			rangeBox.innerText = `Error : Start value is larger than end value!!`;
+		}
+		else if(start === end){
+			rangeBox.innerText = `Error : Both are equal`;
+		}
+		else{
+			rangeBox.innerText = `The Range is : ${rangeOfNumbers(parseInt(start), parseInt(end))}`;
+		}
+			
+	});
+
+	</script>
+</body>
+</html>
+

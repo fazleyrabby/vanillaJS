@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Append</title>
+</head>
+<style>
+button{
+  color: #fff;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  width: 20px;
+  text-align: center;
+}
+.btn{
+  background: green;
+}
+.btnremove{
+  background: red;
+}
+</style>
+<body>
+  
+  <div id="box">
+    <div class="text-box">
+        <span>text 1</span>
+        <button class="btn">+</button>
+        <div class="extra"></div>
+    </div>
+    <br>
+    <div class="text-box">
+        <span>text 2</span>
+        <button class="btn">+</button>
+        <div class="extra"></div>
+    </div>
+    <br>
+    <div class="text-box">
+        <span>text 3</span>
+        <button class="btn">+</button>
+        <div class="extra"></div>
+    </div>
+    <br>
+  </div>
+  
+
+  <script>
+    let btn = document.querySelectorAll('.btn');
+    let extra = document.querySelectorAll('.extra');
+
+    let div = `<div class="text-box-extra">
+        <span>Extra</span>
+        <button data-row-target='.text-box-extra' class="btnremove">-</button>
+        </div>`
+ 
+    removeEvent(document, 'click', '.btnremove',removeItem);
+
+    function removeEvent(element, event, selector, callback){
+      element.addEventListener(event, e => {
+        if (e.target.matches(selector)) {
+          removeItem(e)
+        }
+      })
+    }
+
+    btn.forEach((item, key) => {
+      item.addEventListener('click',() =>{
+         //to add only 1
+         //extra[key].innerHTML = div 
+         //to add more than 1
+         extra[key].innerHTML += div 
+      })
+    })
+
+    function removeItem(params) {
+      let buttonClicked = params.target
+      buttonClicked.closest(buttonClicked.dataset.rowTarget).remove()
+    }
+
+  </script>
+</body>
+</html>

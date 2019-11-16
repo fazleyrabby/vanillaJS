@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		  padding: 10px;
+		}
+	</style>
+	
+	<button id='button' style="padding: 10px">Click</button>
+	<br>
+	<br>
+	<div id="data"></div>
+
+	<script>
+	  document.getElementById('button').addEventListener('click',()=>{
+	   fetch('http://dummy.restapiexample.com/api/v1/employees')
+	  .then((resp) => resp.json()) // Transform the data into json
+	  .then(function(data) {
+		let table = `
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+				<tbody>`;
+	  	data.forEach((item) => {
+	  	table += 
+  		`<tr>
+			<td>${item.id}</td>
+			<td>${item.employee_name}</td>
+			<td>${item.employee_salary}</td>
+		</tr>`;
+	  	});
+	  	table += `</tbody></table>`;
+	  	document.getElementById("data").innerHTML = table;
+    });
+  });  
+</script>
+</body>
+</html>
